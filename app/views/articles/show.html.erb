@@ -12,7 +12,9 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= @article.tags.join('|') %>
+  <% @article.tags.each do |tag| %>
+    <span class="tag"><%= tag %></span>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
