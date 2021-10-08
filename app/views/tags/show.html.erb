@@ -1,0 +1,5 @@
+<h1><%= @tag.name %></h1>
+
+<%= render 'articles/articles', articles: @tagged_articles %>
+
+<%= link_to 'Articles', articles_path %>
