@@ -9,6 +9,12 @@ class Article < ApplicationRecord
 
   TAG_MAX_COUNT = 5
   def validate_tag
-    errors.add(:tag_list, "は#{TAG_MAX_COUNT}つ以下にしてください。") if tag_list.size > TAG_MAX_COUNT
+    return errors.add(:tag_list, "は#{TAG_MAX_COUNT}つ以下にしてください") if tag_list.size > TAG_MAX_COUNT
+
+    tag_list.each do |tag_name|
+      tag = Tag.new(name: tag_name)
+      tag.validate_name
+      tag.errors.messages[:name].each { |message| errors.add(:tag_list, message) }
+    end
   end
 end

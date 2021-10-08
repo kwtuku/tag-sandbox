@@ -38,7 +38,7 @@ RSpec.describe 'Articles', type: :system do
       expect do
         click_button '登録する'
       end.to change(Article, :count).by(0)
-      expect(page).to have_content 'タグは5つ以下にしてください。'
+      expect(page).to have_content 'タグは5つ以下にしてください'
     end
   end
 end
