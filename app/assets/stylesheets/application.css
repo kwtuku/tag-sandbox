@@ -24,3 +24,7 @@
   --tag-text-color: #363636 !important;
   --tag-inset-shadow-size: 1.35em !important;
 }
+
+.custom-tagify-look > div {
+  border: unset;
+}
