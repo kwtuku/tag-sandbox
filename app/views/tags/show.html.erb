@@ -1,0 +1,6 @@
+<h1><%= @tag.name %></h1>
+<p><%= "#{@tagged_articles.size}件の記事" %></p>
+
+<%= render 'articles/articles', articles: @tagged_articles %>
+
+<%= link_to 'Articles', articles_path %>

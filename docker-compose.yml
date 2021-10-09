@@ -9,6 +9,7 @@ services:
       - rails_cache:/myapp/tmp/cache:cached
       - node_modules:/myapp/node_modules:cached
       - bundle:/usr/local/bundle:cached
+      - yarn-cache:/usr/local/share/.cache/yarn/v6:cached
     tmpfs:
       - /tmp
     tty: true
@@ -43,5 +44,6 @@ services:
 volumes:
   rails_cache:
   node_modules:
-  postgres:
   bundle:
+  yarn-cache:
+  postgres:
