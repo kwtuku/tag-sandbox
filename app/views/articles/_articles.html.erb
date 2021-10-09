@@ -15,7 +15,7 @@
         <td><%= article.body %></td>
         <td>
           <% article.tags.each do |tag| %>
-            <%= link_to tag_path(tag) do %>
+            <%= link_to tag_path(tag.name) do %>
               <span class="tag"><%= tag %></span>
             <% end %>
           <% end %>
