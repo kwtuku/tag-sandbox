@@ -1,2 +1,17 @@
 @import "~bulma/css/bulma.min";
 @import "@yaireo/tagify/src/tagify.scss";
+
+.height-unset {
+  height: unset;
+}
+
+.custom-tagify-look {
+  --tag-bg: #f5f5f5;
+  --tags-focus-border-color: #485fc7;
+  --tag-text-color: #363636;
+  --tag-inset-shadow-size: 1.35em;
+}
+
+.custom-tagify-look > div {
+  border: unset;
+}
