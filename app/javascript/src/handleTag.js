@@ -18,8 +18,6 @@ export default () => {
 
     tagify.on('input', onInput)
 
-    const isProduction = process.env.NODE_ENV === 'production';
-
     function onInput(e) {
       const value = e.detail.value
 
@@ -30,7 +28,7 @@ export default () => {
 
       tagify.loading(true).dropdown.hide()
 
-      fetch(`${isProduction ? '' : 'http://localhost:3000'}/tags?name=${value}`, { signal: controller.signal })
+      fetch(`${location.protocol}//${location.host}/tags?name=${value}`, { signal: controller.signal })
         .then(RES => RES.json())
         .then(function (newWhitelist) {
           tagify.whitelist = newWhitelist.data

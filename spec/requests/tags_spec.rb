@@ -9,7 +9,7 @@ RSpec.describe 'Tags', type: :request do
     end
 
     it 'returns a 200 response' do
-      get tags_path(name: '')
+      get tags_path(name: 'ruby')
       expect(response.status).to eq 200
     end
 

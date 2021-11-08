@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Articles', type: :system do
   context 'with no tags' do
     it 'creates a new article', js: true do
-      visit articles_path
-      click_link 'New Article'
+      visit new_article_path
       fill_in 'article[title]', with: 'title'
       fill_in 'article[body]', with: 'body'
       expect do
@@ -16,8 +15,7 @@ RSpec.describe 'Articles', type: :system do
 
   context 'with 5 tags' do
     it 'creates a new article', js: true do
-      visit articles_path
-      click_link 'New Article'
+      visit new_article_path
       fill_in 'article[title]', with: 'title'
       fill_in 'article[body]', with: 'body'
       fill_in 'article[tag_list]', with: 'ruby, php, python, go, c', visible: false
@@ -30,8 +28,7 @@ RSpec.describe 'Articles', type: :system do
 
   context 'with 6 tags' do
     it 'cannot create a new article', js: true do
-      visit articles_path
-      click_link 'New Article'
+      visit new_article_path
       fill_in 'article[title]', with: 'title'
       fill_in 'article[body]', with: 'body'
       fill_in 'article[tag_list]', with: 'ruby, php, python, go, c, java', visible: false

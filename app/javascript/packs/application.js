@@ -12,4 +12,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "../src/application"
+import handleTag from '../src/handleTag'
+handleTag();

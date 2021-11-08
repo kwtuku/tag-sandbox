@@ -12,7 +12,7 @@ RSpec.describe Article, type: :model do
           body: 'body',
           tag_list: ''
         )
-        expect(article.valid?).to eq true
+        expect(article).to be_valid
       end
     end
 
@@ -23,7 +23,7 @@ RSpec.describe Article, type: :model do
           body: 'body',
           tag_list: 'ruby, php, python, go, c'
         )
-        expect(article.valid?).to eq true
+        expect(article).to be_valid
       end
     end
 
@@ -34,7 +34,8 @@ RSpec.describe Article, type: :model do
           body: 'body',
           tag_list: 'ruby, php, python, go, c, java'
         )
-        expect(article.invalid?).to eq true
+        expect(article).to be_invalid
+        expect(article.errors).to be_of_kind(:tag_list, :too_many_tags)
       end
     end
 
@@ -45,7 +46,7 @@ RSpec.describe Article, type: :model do
           body: 'body',
           tag_list: 'a' * 30
         )
-        expect(article.valid?).to eq true
+        expect(article).to be_valid
       end
     end
 
@@ -56,7 +57,8 @@ RSpec.describe Article, type: :model do
           body: 'body',
           tag_list: 'a' * 31
         )
-        expect(article.invalid?).to eq true
+        expect(article).to be_invalid
+        expect(article.errors[:tag_list]).to include 'は30文字以内で入力してください'
       end
     end
 
@@ -70,7 +72,7 @@ RSpec.describe Article, type: :model do
             body: 'body',
             tag_list: tag_name
           )
-          expect(article.valid?).to eq true
+          expect(article).to be_valid
         end
       end
     end
@@ -85,7 +87,8 @@ RSpec.describe Article, type: :model do
             body: 'body',
             tag_list: tag_name
           )
-          expect(article.invalid?).to eq true
+          expect(article).to be_invalid
+          expect(article.errors[:tag_list]).to include 'はひらがな、または全角のカタカナ、漢字、半角の英数字のみが使用できます'
         end
       end
     end
