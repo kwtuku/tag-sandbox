@@ -19,4 +19,22 @@ RSpec.describe 'Tags', type: :request do
       expect(json['data'].length).to eq 2
     end
   end
+
+  describe 'GET /tags/:name' do
+    context 'when the tag of existing name' do
+      it 'returns a 200 response' do
+        tag = create :tag, name: 'ruby'
+        get tag_path('ruby')
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'when the tag of non-existent name' do
+      it 'raises ActiveRecord::RecordNotFound' do
+        expect do
+          get tag_path('ruby')
+        end.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
+  end
 end
