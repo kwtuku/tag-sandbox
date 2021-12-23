@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   def index
-    tags = ActsAsTaggableOn::Tag.where('name LIKE ?', "%#{params[:name]}%").pluck(:name).first(5)
-    render json: { status: 'SUCCESS', message: 'Loaded tags', data: tags }
+    tags = Tag.where('name LIKE ?', "%#{Tag.sanitize_sql_like(params[:name])}%").pluck(:name).first(5)
+    render json: { message: 'Loaded tags', data: tags }, status: :ok
   end
 
   def show
