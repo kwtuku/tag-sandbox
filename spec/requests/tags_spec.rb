@@ -23,7 +23,7 @@ RSpec.describe 'Tags', type: :request do
   describe 'GET /tags/:name' do
     context 'when the tag of existing name' do
       it 'returns a 200 response' do
-        tag = create :tag, name: 'ruby'
+        create :tag, name: 'ruby'
         get tag_path('ruby')
         expect(response.status).to eq 200
       end

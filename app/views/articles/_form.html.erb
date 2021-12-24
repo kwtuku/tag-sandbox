@@ -30,7 +30,7 @@
       <div class="field">
         <%= form.label :tag_list, class: 'label' %>
         <div class="control">
-          <%= form.text_field :tag_list, class: 'input height-unset custom-tagify-look', value: form.object.tag_list.to_s %>
+          <%= form.text_field :tag_list, class: 'input height-unset custom-tagify-look', value: form.object.tag_list.to_s, pattern: '^[,a-z0-9一-龠々ぁ-ヶー]+$' %>
         </div>
       </div>
 
