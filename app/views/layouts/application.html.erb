@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>tag-sandbox</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,9 @@
 
   <body>
     <div class="container">
-      <%= yield %>
+      <section class="section">
+        <%= yield %>
+      </section>
     </div>
   </body>
 </html>
